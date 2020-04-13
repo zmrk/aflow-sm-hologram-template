@@ -1,0 +1,33 @@
+<html>
+
+<body>
+<div id="root">
+</div>
+</body>
+<script>
+    var rootElement = document.getElementById("root")
+    var type = "{type}"
+    var url = "{url}"
+    var element = null
+    switch (type) {
+        case "image": {
+            element = document.createElement("img")
+            element.setAttribute("src", url)
+            break;
+        }
+        case "video": {
+            element = document.createElement("video")
+            element.setAttribute("controls", true)
+            element.autoplay = true
+            var sourceElement = document.createElement("source")
+            sourceElement.setAttribute("src", url)
+            sourceElement.setAttribute("type", "video/mp4")
+            element.appendChild(sourceElement)
+            break;
+        }
+    }
+
+    rootElement.appendChild(element)
+</script>
+
+</html>
